@@ -37,7 +37,10 @@ class VoiceQnA:
         myObj = gTTS(text=_text, lang=language, slow=False)
         myObj.save("temp_audio.mp3")
         playsound("temp_audio.mp3")
-        os.remove("temp_audio.mp3")
+        try:
+            os.remove("temp_audio.mp3")
+        except:
+            pass
 
     def speech_to_text(self, _filename):
         r = sr.Recognizer()
@@ -73,7 +76,6 @@ class VoiceQnA:
             self.dynamic_elements()
             global recording
             recording = False
-            time.sleep(0.1)
             # check if speech contain text
             try:
                 self.recorded_text = self.speech_to_text("trial.wav")
@@ -101,7 +103,10 @@ class VoiceQnA:
                 messagebox.showerror(message="Some error occured")
         elif x == 4:
             if self.q_no + 1 == self.data_size:
-                os.remove("trial.wav")
+                try:
+                    os.remove("trial.wav")
+                except:
+                    pass
                 if not self.recorded_text_writing:
                     self.recorded_text_writing = True
                     with open('answers.txt', 'w') as f:
@@ -128,7 +133,10 @@ class VoiceQnA:
                     self.next_btn_text = "Finish"
                 self.dynamic_elements()
         elif x == 5:
-            os.remove("trial.wav")
+            try:
+                os.remove("trial.wav")
+            except:
+                pass
             gui.destroy()
 
     # Recording function
@@ -165,9 +173,6 @@ class VoiceQnA:
 
         stop_btn = Button(gui, text="Stop Recording", width=13, font=("ariel", 16, "bold"), bg= "#eb4132")
         stop_btn.place(x=260, y=200)
-
-        # play_btn = Button(gui, text="Play Answer", width=13, font=("ariel", 16, "bold"), bg= "#4086f4")
-        # play_btn.place(x=450, y=200)
 
         answer_status = Label(gui, text=self.status_text, width=60, font=('ariel', 16, 'bold'), anchor='w')
         answer_status.place(x=70, y=300)
