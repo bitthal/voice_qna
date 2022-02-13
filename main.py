@@ -181,7 +181,7 @@ class VoiceQnA:
             play_btn.place(x=550, y=200)
         else:
             next_button = Button(gui, text=self.next_btn_text, width=10, font=("ariel", 16, "bold"), bg="blue", fg="white", state = 'disabled')
-            next_button.place(x=550, y=380)
+            next_button.place(x=350, y=380)
             play_btn = Button(gui, text="Play Answer", width=13, font=("ariel", 16, "bold"), bg="#4086f4", state= 'disabled')
             play_btn.place(x=550, y=200)
 
