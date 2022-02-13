@@ -172,7 +172,7 @@ class VoiceQnA:
         record_btn.place(x=70, y=200)
 
         stop_btn = Button(gui, text="Stop Recording", width=13, font=("ariel", 16, "bold"), bg= "#eb4132")
-        stop_btn.place(x=260, y=200)
+        stop_btn.place(x=300, y=200)
 
         answer_status = Label(gui, text=self.status_text, width=60, font=('ariel', 16, 'bold'), anchor='w')
         answer_status.place(x=70, y=300)
@@ -184,9 +184,9 @@ class VoiceQnA:
             play_btn.place(x=450, y=200)
         else:
             next_button = Button(gui, text=self.next_btn_text, width=10, font=("ariel", 16, "bold"), bg="blue", fg="white", state = 'disabled')
-            next_button.place(x=350, y=380)
+            next_button.place(x=550, y=380)
             play_btn = Button(gui, text="Play Answer", width=13, font=("ariel", 16, "bold"), bg="#4086f4", state= 'disabled')
-            play_btn.place(x=450, y=200)
+            play_btn.place(x=550, y=200)
 
         object_list = [play_question, record_btn, stop_btn, play_btn, next_button]
         play_question['command'] = lambda m=0: self.threading_rec(m, object_list)
@@ -200,6 +200,8 @@ class VoiceQnA:
 gui = Tk()
 gui.geometry("800x450")
 gui.title("Voice Q&A")
+gui.minsize(850, 450)
+gui.maxsize(850, 450)
 with open('question.txt') as f:
     all_questions = list(filter(None, f.read().splitlines()))
 
