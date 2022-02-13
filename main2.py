@@ -128,7 +128,10 @@ class VoiceQnA:
                     self.next_btn_text = "Finish"
                 self.dynamic_elements()
         elif x == 5:
-            os.remove("trial.wav")
+            try:
+                os.remove("trial.wav")
+            except:
+                pass
             gui.destroy()
 
     # Recording function
@@ -195,6 +198,8 @@ class VoiceQnA:
 gui = Tk()
 gui.geometry("800x450")
 gui.title("Voice Q&A")
+gui.minsize(850, 450)
+gui.maxsize(850, 450)
 with open('question.txt') as f:
     all_questions = list(filter(None, f.read().splitlines()))
 
