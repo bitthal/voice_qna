@@ -103,10 +103,7 @@ class VoiceQnA:
                 messagebox.showerror(message="Some error occured")
         elif x == 4:
             if self.q_no + 1 == self.data_size:
-                try:
-                    os.remove("trial.wav")
-                except:
-                    pass
+                os.remove("trial.wav")
                 if not self.recorded_text_writing:
                     self.recorded_text_writing = True
                     with open('answers.txt', 'w') as f:
@@ -181,7 +178,7 @@ class VoiceQnA:
             next_button = Button(gui, text=self.next_btn_text, width=10, font=("ariel", 16, "bold"), bg="blue", fg="white")
             next_button.place(x=350, y=380)
             play_btn = Button(gui, text="Play Answer", width=13, font=("ariel", 16, "bold"), bg="#4086f4")
-            play_btn.place(x=450, y=200)
+            play_btn.place(x=550, y=200)
         else:
             next_button = Button(gui, text=self.next_btn_text, width=10, font=("ariel", 16, "bold"), bg="blue", fg="white", state = 'disabled')
             next_button.place(x=550, y=380)
