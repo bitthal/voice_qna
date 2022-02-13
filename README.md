@@ -1,5 +1,5 @@
 # Pre-requisites
-Ubuntu
+Ubuntu 18.04 or above
 
 # voice_qna 
 A simple python application for voice questioning and answering and then answers are stored in txt file.
